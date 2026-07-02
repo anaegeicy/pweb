@@ -9,41 +9,57 @@
     
  <form>
         
-     Login: <br>
-     <input type="text" required name="login"><br>
+    Login: <br>
+    <input type="text" required name="login"><br>
      
-     Senha: <br>
-     <input type="password" name="senha"><br>
-     Confirmar senha: <br>
-     <input type="password" name="confirmarsenha"><br>
+    Senha: <br>
+    <input type="password" name="senha"><br>
+    Confirmar senha: <br>
+    <input type="password" name="confirmarsenha"><br>
      
-     Nome: <br>
-     <input type="text" name="nome"><br>
+    Nome: <br>
+    <input type="text" name="nome"><br>
     
-     Sexo: <br>
-     <input type="radio" value="Masculino" name="sexo">Masculino<br>
-     <input type="radio" value="Feminino" name="sexo">Feminino<br>
+    Sexo: <br>
+    <input type="radio" value="Masculino" name="sexo">Masculino<br>
+    <input type="radio" value="Feminino" name="sexo">Feminino<br>
      
-     Email: <br>
-     <input type="Email" name="email"><br><br>
+    Email: <br>
+    <input type="Email" name="email"><br><br>
      
-     Interesses: <br>
-     <input type="checkbox" value="Futebol" name="interesses">Futebol<br>
-     <input type="checkbox" value="Politica" name="interesses">Politica<br>
-     <input type="checkbox" value="Economia" name="interesses">Economia<br>
-     <input type="checkbox" value="Carros" name="interesses">Carros<br>
-     <input type="checkbox" value="Celebridades" name="interesses">Celebridades<br><br>
+    Interesses: <br>
+    <input type="checkbox" value="Futebol" name="interesses">Futebol<br>
+    <input type="checkbox" value="Politica" name="interesses">Politica<br>
+    <input type="checkbox" value="Economia" name="interesses">Economia<br>
+    <input type="checkbox" value="Carros" name="interesses">Carros<br>
+    <input type="checkbox" value="Celebridades" name="interesses">Celebridades<br><br>
     
-     <input type="button" value="Enviar">
+    <input type="button" value="Enviar">
 
-     <select name="estado" contect="https://www.w3schools.com/tags/tag_select.asp"
-     <textarea name="observacao" contect="https://www.w3schools.com/tags/tag_textarea.asp"
-     
+ </form>
+
+ <form>
+
+    <label for="estados">Escolha um estado:</label>
+
+    <select name="estados" id="Estados">
+      <option value="amazonas">Amazonas</option>
+      <option value="paraiba">Paraiba</option>
+      <option value="alagoas">Alagoas</option>
+      <option value="para">Para</option>
+    </select>
     
+    <label for="observacao">Review of W3Schools:</label>
+
+    <textarea id="observacao" name="observacao" rows="4" cols="50">
+    </textarea>
+
+    
+
  </form>
  
  </body>
 
-  <form action="https://qfqdkj.hospedagemelastica.com.br/pweb/salvar.jsp" method="POST"> </form>
+ <form action="https://qfqdkj.hospedagemelastica.com.br/pweb/salvar.jsp" method="POST"> </form>
 
   <input type="submit" value="Enviar">
