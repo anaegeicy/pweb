@@ -317,3 +317,75 @@ footer{text-align:center;color:var(--texto-suave);font-size:.85rem;padding-top:1
   *,*::before,*::after{animation:none!important;transition:none!important}
   .poster img,.galeria li{animation:none!important}
 }
+
+.certificado {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: radial-gradient(circle at center, #fff0fa, #ffe3f4);
+  overflow-y: auto;
+}
+
+.cert-conteudo {
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.cert-voltar,
+.cert-imprimir {
+  font-family: 'Quicksand', sans-serif;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: var(--neon, #d63aa3);
+}
+
+.cert-voltar { margin-bottom: 1.5rem; display: inline-block; }
+.cert-imprimir { margin-top: 1.5rem; }
+
+.cert-moldura {
+  border: 3px double var(--neon, #d63aa3);
+  border-radius: 18px;
+  padding: 2.5rem 2rem;
+  background: #fff;
+}
+
+.cert-selo {
+  letter-spacing: 2px;
+  color: var(--orvalho, #6ac9c9);
+  font-family: 'Quicksand', sans-serif;
+  margin-bottom: 0.5rem;
+}
+
+.cert-moldura h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 2.2rem;
+  margin: 0 0 1rem;
+}
+
+.cert-nome {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1.6rem;
+  margin: 1rem 0;
+  color: var(--neon, #d63aa3);
+}
+
+.cert-texto { font-family: 'Quicksand', sans-serif; color: #444; }
+
+.cert-data {
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+@media print {
+  body > *:not(#pagina-certificado) { display: none !important; }
+  .cert-voltar, .cert-imprimir { display: none !important; }
+}
