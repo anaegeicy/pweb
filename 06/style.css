@@ -46,9 +46,10 @@ body{
   margin:0;
   background:var(--noite);
   background-image:
-    radial-gradient(60% 45% at 12% 8%, rgba(255,95,174,.32), transparent 70%),
-    radial-gradient(50% 40% at 88% 22%, rgba(124,231,212,.26), transparent 72%),
-    radial-gradient(70% 50% at 50% 108%, rgba(156,128,137,.5), transparent 70%),
+    radial-gradient(70% 55% at 12% 8%, rgba(255,95,174,.52), transparent 72%),
+    radial-gradient(60% 50% at 88% 16%, rgba(255,95,174,.34), transparent 74%),
+    radial-gradient(40% 34% at 76% 42%, rgba(124,231,212,.12), transparent 70%),
+    radial-gradient(80% 60% at 50% 110%, rgba(243,185,207,.6), transparent 74%),
     linear-gradient(170deg, var(--noite), var(--noite-2));
   background-attachment:fixed;
   color:var(--texto);
@@ -57,6 +58,7 @@ body{
   line-height:1.72;
   overflow-x:hidden;
 }
+::selection{background:var(--neon);color:#fff}
 
 /* poeira de fada */
 .poeira{position:fixed;inset:0;pointer-events:none;z-index:0}
@@ -67,10 +69,10 @@ body{
   opacity:.5;
   animation:flutuar 17s linear infinite;
 }
-.poeira i:nth-child(2){left:22%;width:4px;height:4px;background:var(--orvalho);box-shadow:0 0 10px 2px rgba(124,231,212,.6);animation-duration:23s;animation-delay:-4s}
+.poeira i:nth-child(2){left:22%;width:4px;height:4px;background:var(--neon);box-shadow:0 0 10px 2px rgba(255,95,174,.6);animation-duration:23s;animation-delay:-4s}
 .poeira i:nth-child(3){left:41%;animation-duration:29s;animation-delay:-11s}
-.poeira i:nth-child(4){left:63%;width:5px;height:5px;animation-duration:20s;animation-delay:-7s}
-.poeira i:nth-child(5){left:79%;background:var(--orvalho);box-shadow:0 0 10px 2px rgba(124,231,212,.5);animation-duration:26s;animation-delay:-15s}
+.poeira i:nth-child(4){left:63%;width:5px;height:5px;background:var(--petala-clara);animation-duration:20s;animation-delay:-7s}
+.poeira i:nth-child(5){left:79%;background:var(--neon);box-shadow:0 0 10px 2px rgba(255,95,174,.5);animation-duration:26s;animation-delay:-15s}
 .poeira i:nth-child(6){left:92%;width:4px;height:4px;animation-duration:31s;animation-delay:-2s}
 .poeira i:nth-child(1){left:8%}
 @keyframes flutuar{
@@ -85,7 +87,7 @@ body{
 /* ---- capa ---- */
 .capa{padding:clamp(3.5rem,11vh,6rem) 0 2rem;text-align:center}
 .capa .rotulo{
-  font-size:.82rem;letter-spacing:.22em;color:var(--texto-suave);
+  font-size:.82rem;letter-spacing:.22em;color:var(--petala);
   margin:0 0 1.2rem;
 }
 .capa h1{
@@ -93,7 +95,7 @@ body{
   font-weight:300;font-style:italic;
   font-size:clamp(3rem,13vw,6.2rem);
   line-height:.86;margin:0;
-  background:linear-gradient(104deg,var(--petala) 0%,var(--neon) 42%,var(--orvalho) 100%);
+  background:linear-gradient(104deg,var(--petala-clara) 0%,var(--petala) 24%,var(--neon) 62%,var(--orvalho) 100%);
   -webkit-background-clip:text;background-clip:text;color:transparent;
   filter:drop-shadow(0 6px 26px rgba(255,95,174,.35));
   animation:surgir 1.1s cubic-bezier(.2,.8,.3,1) both;
@@ -103,7 +105,7 @@ body{
 @keyframes surgir{from{opacity:0;transform:translateY(26px) scale(.97);filter:blur(10px)}to{opacity:1;transform:none;filter:none}}
 
 /* ---- divisória ---- */
-.flor{border:0;display:flex;align-items:center;gap:1rem;margin:3.2rem 0;color:var(--petala);opacity:.65}
+.flor{border:0;display:flex;align-items:center;gap:1rem;margin:3.2rem 0;color:var(--neon);opacity:.7}
 .flor::before,.flor::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,currentColor,transparent)}
 .flor::marker{content:none}
 .flor span{font-size:1.1rem}
@@ -111,6 +113,7 @@ body{
 h2{
   font-family:"Fraunces",serif;font-weight:600;font-size:1.9rem;
   margin:0 0 1rem;letter-spacing:-.01em;
+  text-shadow:0 0 22px rgba(255,95,174,.28);
 }
 h2::first-letter{color:var(--neon)}
 
@@ -121,26 +124,93 @@ h2::first-letter{color:var(--neon)}
 }
 
 /* ---- pôster ---- */
-.poster{position:relative;width:max-content;margin:0 auto;padding:1rem}
+.poster{position:relative;width:max-content;margin:0 auto;padding:1rem;perspective:900px}
 .poster::after{
-  content:"";position:absolute;inset:-14%;z-index:-1;border-radius:50%;
-  background:radial-gradient(circle,rgba(255,95,174,.42),transparent 68%);
+  content:"";position:absolute;inset:-16%;z-index:-1;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,95,174,.6),rgba(243,185,207,.25) 55%,transparent 72%);
   filter:blur(24px);
+  animation:pulsar-halo 4.5s ease-in-out infinite;
+}
+@keyframes pulsar-halo{
+  0%,100%{opacity:.7;transform:scale(1)}
+  50%{opacity:1;transform:scale(1.16)}
 }
 .poster img{
   display:block;width:min(320px,74vw);height:auto;
   border-radius:180px 180px 16px 16px;
-  border:1px solid var(--borda);
-  box-shadow:var(--sombra);
-  transform:rotate(-2deg);
-  transition:transform .5s cubic-bezier(.2,.8,.3,1);
+  border:1px solid var(--neon);
+  box-shadow:var(--sombra),0 0 34px -6px rgba(255,95,174,.55);
+  animation:flutuar-poster 5s ease-in-out infinite;
+  transition:transform .35s cubic-bezier(.2,.8,.3,1),box-shadow .4s;
+  will-change:transform;
 }
-.poster img:hover{transform:rotate(0deg) translateY(-6px)}
+@keyframes flutuar-poster{
+  0%{transform:rotate(-3deg) translateY(0) translateX(0)}
+  25%{transform:rotate(1deg) translateY(-14px) translateX(4px)}
+  50%{transform:rotate(3deg) translateY(-4px) translateX(-3px)}
+  75%{transform:rotate(-1deg) translateY(-16px) translateX(3px)}
+  100%{transform:rotate(-3deg) translateY(0) translateX(0)}
+}
+.poster img:hover{box-shadow:var(--sombra),0 0 48px -4px rgba(255,95,174,.8)}
+.poster.tocando img{animation-play-state:paused}
 .poster figcaption{margin-top:1rem;text-align:center;font-size:.85rem;color:var(--texto-suave)}
+
+/* ---- galeria ---- */
+.galeria{
+  list-style:none;margin:0;padding:0;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem;
+  perspective:800px;
+}
+.galeria li{
+  position:relative;overflow:hidden;border-radius:16px;
+  border:1px solid var(--borda);aspect-ratio:3/4;
+  box-shadow:var(--sombra);
+  animation:flutuar-item 4.5s ease-in-out infinite;
+  transition:border-color .3s,box-shadow .3s;
+  will-change:transform;
+}
+.galeria li:nth-child(1){animation-delay:0s}
+.galeria li:nth-child(2){animation-delay:-1.1s}
+.galeria li:nth-child(3){animation-delay:-2.2s}
+.galeria li:nth-child(4){animation-delay:-3.3s}
+@keyframes flutuar-item{
+  0%{transform:rotate(-2.5deg) translateY(0)}
+  25%{transform:rotate(2deg) translateY(-9px)}
+  50%{transform:rotate(-1.5deg) translateY(-2px)}
+  75%{transform:rotate(2.5deg) translateY(-11px)}
+  100%{transform:rotate(-2.5deg) translateY(0)}
+}
+.galeria li.tocando{animation-play-state:paused}
+.galeria img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  filter:saturate(.95);
+  transition:transform .5s cubic-bezier(.2,.8,.3,1),filter .4s;
+}
+.galeria li::before{
+  content:"";position:absolute;inset:0;z-index:2;
+  background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.55) 50%,transparent 60%);
+  translate:-140% 0;transition:translate .9s ease;
+  pointer-events:none;
+}
+.galeria li::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);
+  background:linear-gradient(180deg,transparent 55%,rgba(255,95,174,.35));
+  pointer-events:none;
+}
+.galeria li:hover{
+  z-index:3;border-color:var(--neon);
+  box-shadow:var(--sombra),0 0 30px -4px rgba(255,95,174,.75);
+}
+.galeria li:hover::before{translate:140% 0}
+.galeria li:hover img{transform:scale(1.14);filter:saturate(1.1)}
+@media (max-width:640px){
+  .galeria{grid-template-columns:repeat(2,1fr)}
+}
 
 /* ---- link do filme ---- */
 .assistir{
-  display:block;text-align:center;background:var(--vidro);
+  display:block;text-align:center;background:rgba(255,95,174,.08);
   border:1px solid var(--borda);border-radius:20px;padding:1.5rem;
   backdrop-filter:blur(8px);
 }
@@ -155,10 +225,12 @@ h2::first-letter{color:var(--neon)}
 .fatos{list-style:none;padding:0;margin:0;display:grid;gap:.9rem}
 .fatos li{
   position:relative;padding:1.1rem 1.2rem 1.1rem 3.1rem;
-  background:var(--vidro);border:1px solid var(--borda);
+  background:rgba(255,95,174,.07);border:1px solid var(--borda);
   border-radius:4px 22px 22px 4px;
   backdrop-filter:blur(6px);
+  transition:border-color .3s,background .3s;
 }
+.fatos li:hover{border-color:var(--neon);background:rgba(255,95,174,.13)}
 .fatos li::before{
   content:"✿";position:absolute;left:1.1rem;top:1rem;
   color:var(--neon);font-size:1.05rem;
@@ -167,26 +239,27 @@ h2::first-letter{color:var(--neon)}
 .fatos p{margin:0;color:var(--texto-suave);font-size:.96rem}
 
 /* ---- tabela ---- */
-.tabela-rolagem{overflow-x:auto;border-radius:18px;border:1px solid var(--borda);background:var(--vidro)}
+.tabela-rolagem{overflow-x:auto;border-radius:18px;border:1px solid var(--borda);background:rgba(255,95,174,.06)}
 table{border-collapse:collapse;width:100%;min-width:480px;text-align:left}
 th{
   font-family:"Fraunces",serif;font-weight:600;font-size:.95rem;
   padding:1rem 1.1rem;color:var(--texto);
-  border-bottom:1px solid var(--borda);
+  background:rgba(255,95,174,.1);
+  border-bottom:1px solid var(--neon);
 }
-td{padding:.95rem 1.1rem;border-bottom:1px solid rgba(156,128,137,.18);color:var(--texto-suave);font-size:.95rem;vertical-align:top}
+td{padding:.95rem 1.1rem;border-bottom:1px solid rgba(255,95,174,.16);color:var(--texto-suave);font-size:.95rem;vertical-align:top}
 tbody tr:last-child td{border-bottom:0}
-td:first-child{color:var(--texto);font-weight:700;white-space:nowrap}
+td:first-child{color:var(--neon);font-weight:700;white-space:nowrap}
 tbody tr{transition:background .25s}
-tbody tr:hover{background:rgba(255,95,174,.09)}
+tbody tr:hover{background:rgba(255,95,174,.14)}
 
 /* ---- formulário ---- */
-form{background:var(--vidro);border:1px solid var(--borda);border-radius:22px;padding:1.8rem;backdrop-filter:blur(8px)}
+form{background:rgba(255,95,174,.07);border:1px solid var(--borda);border-radius:22px;padding:1.8rem;backdrop-filter:blur(8px)}
 form p.intro{margin:0 0 1.4rem;color:var(--texto-suave);font-size:.95rem}
-label{display:block;font-size:.78rem;letter-spacing:.14em;color:var(--texto-suave);margin-bottom:.45rem}
+label{display:block;font-size:.78rem;letter-spacing:.14em;color:var(--petala);margin-bottom:.45rem}
 input{
   width:100%;padding:.85rem 1rem;color:var(--texto);
-  background:rgba(156,128,137,.14);
+  background:rgba(255,95,174,.09);
   border:1px solid var(--borda);border-radius:12px;
   font:inherit;font-size:.95rem;
   transition:border-color .25s,box-shadow .25s,background .25s;
@@ -207,18 +280,18 @@ button:active{transform:translateY(0)}
 
 /* ---- curiosidades ---- */
 details{
-  background:var(--vidro);border:1px solid var(--borda);
+  background:rgba(255,95,174,.07);border:1px solid var(--borda);
   border-radius:16px;margin-bottom:.75rem;overflow:hidden;
-  transition:border-color .3s;
+  transition:border-color .3s,background .3s;
 }
-details[open]{border-color:var(--neon)}
+details[open]{border-color:var(--neon);background:rgba(255,95,174,.13)}
 summary{
   list-style:none;cursor:pointer;padding:1rem 1.2rem;
   font-weight:700;display:flex;align-items:center;gap:.7rem;
 }
 summary::-webkit-details-marker{display:none}
 summary::before{
-  content:"❋";color:var(--orvalho);font-size:.95rem;
+  content:"❋";color:var(--petala);font-size:.95rem;
   transition:transform .4s cubic-bezier(.2,.8,.3,1),color .3s;
 }
 details[open] summary::before{transform:rotate(180deg) scale(1.25);color:var(--neon)}
@@ -231,4 +304,5 @@ footer{text-align:center;color:var(--texto-suave);font-size:.85rem;padding-top:1
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
+  .poster img,.galeria li{animation:none!important}
 }
