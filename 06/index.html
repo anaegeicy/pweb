@@ -42,19 +42,22 @@
 
   <h2>Galeria mágica</h2>
   <ul class="galeria">
-    <li><img src="https://i.pinimg.com/1200x/2b/6a/ad/2b6aadeccc36f35e1480dc0cb407587d.jpg" alt="Cena de Barbie Fairytopia" loading="lazy"></li>
-    <figcaption> Lar da fada Elida</figcaption>
-
-    <li><img src="https://i.pinimg.com/1200x/bf/3e/30/bf3e30024f8f6ab1a2182a56bfc8deaf.jpg" alt="Cena de Barbie Fairytopia" loading="lazy"></li>
-    <figcaption>A fada Elina</figcaption>
-
-    <li><img src="https://i.pinimg.com/736x/e2/1d/19/e21d19e19abb3b4b6f1d6c51b7fbf2e6.jpg" alt="Cena de Barbie Fairytopia" loading="lazy"></li>
-    <figcaption>Fiel companheiro da fada Elina : Biblee</figcaption>
-
-    <li><img src="https://i.pinimg.com/1200x/43/ba/fd/43bafd05298def4c5f714b6efcf15e9c.jpg" alt="Cena de Barbie Fairytopia" loading="lazy"></li>
-    <figcaption> Vilâ: Laverna</figcaption>
-
-
+    <li tabindex="0">
+      <img src="https://i.pinimg.com/1200x/2b/6a/ad/2b6aadeccc36f35e1480dc0cb407587d.jpg" alt="Cena de Barbie Fairytopia" loading="lazy">
+      <figcaption>Lar da fada Elina</figcaption>
+    </li>
+    <li tabindex="0">
+      <img src="https://i.pinimg.com/1200x/bf/3e/30/bf3e30024f8f6ab1a2182a56bfc8deaf.jpg" alt="Cena de Barbie Fairytopia" loading="lazy">
+      <figcaption>A fada Elina</figcaption>
+    </li>
+    <li tabindex="0">
+      <img src="https://i.pinimg.com/736x/e2/1d/19/e21d19e19abb3b4b6f1d6c51b7fbf2e6.jpg" alt="Cena de Barbie Fairytopia" loading="lazy">
+      <figcaption>Fiel companheiro da fada Elina: Bibble</figcaption>
+    </li>
+    <li tabindex="0">
+      <img src="https://i.pinimg.com/1200x/43/ba/fd/43bafd05298def4c5f714b6efcf15e9c.jpg" alt="Cena de Barbie Fairytopia" loading="lazy">
+      <figcaption>Vilã: Laverna</figcaption>
+    </li>
   </ul>
 
   <hr class="flor">
@@ -112,8 +115,8 @@
   <hr class="flor">
 
   <h2>Deixe seu recado</h2>
-  <form action="#" method="POST">
-    <p class="intro">Também ama Fairytopia? Manda seu nome e e-mail pra receber as novidades da página.</p>
+  <form id="form-recado" action="#" method="POST" novalidate>
+    <p class="intro">Também ama Fairytopia? Manda seu nome e e-mail e receba na hora seu Certificado de Fã Fairytopia.</p>
     <div class="campo">
       <label for="nome">Nome</label>
       <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
@@ -122,7 +125,8 @@
       <label for="email">E-mail</label>
       <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
     </div>
-    <button type="submit">Enviar recado</button>
+    <button type="submit">Gerar meu certificado</button>
+    <p class="recado-ok" hidden></p>
   </form>
 
   <hr class="flor">
