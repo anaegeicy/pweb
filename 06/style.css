@@ -318,74 +318,66 @@ footer{text-align:center;color:var(--texto-suave);font-size:.85rem;padding-top:1
   .poster img,.galeria li{animation:none!important}
 }
 
-.certificado {
-  position: fixed;
-  inset: 0;
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  background: radial-gradient(circle at center, #fff0fa, #ffe3f4);
-  overflow-y: auto;
+/* ---- página do certificado ---- */
+.pagina-certificado{
+  position:fixed;inset:0;z-index:100;overflow-y:auto;
+  display:flex;align-items:center;justify-content:center;
+  padding:2rem 1.1rem;
+  background:var(--noite);
+  background-image:
+    radial-gradient(65% 55% at 15% 10%, rgba(255,95,174,.55), transparent 72%),
+    radial-gradient(55% 45% at 85% 90%, rgba(124,231,212,.22), transparent 72%),
+    linear-gradient(170deg, var(--noite), var(--noite-2));
 }
-
-.cert-conteudo {
-  width: 100%;
-  max-width: 600px;
-  text-align: center;
+.pagina-certificado[hidden]{display:none}
+.certificado-cartao{
+  position:relative;max-width:640px;width:100%;
+  background:var(--petala-clara);color:#3a2438;
+  border-radius:22px;padding:clamp(2rem,5vw,3.4rem);
+  box-shadow:0 30px 70px -25px rgba(8,2,20,.7);
+  border:1px solid rgba(255,95,174,.4);
+  text-align:center;
+  animation:surgir-cert .7s cubic-bezier(.2,.8,.3,1) both;
 }
-
-.cert-voltar,
-.cert-imprimir {
-  font-family: 'Quicksand', sans-serif;
-  border: none;
-  background: none;
-  cursor: pointer;
-  font-size: 0.95rem;
-  color: var(--neon, #d63aa3);
+.certificado-cartao::before{
+  content:"";position:absolute;inset:14px;
+  border:1.5px solid rgba(255,95,174,.5);border-radius:14px;pointer-events:none;
 }
-
-.cert-voltar { margin-bottom: 1.5rem; display: inline-block; }
-.cert-imprimir { margin-top: 1.5rem; }
-
-.cert-moldura {
-  border: 3px double var(--neon, #d63aa3);
-  border-radius: 18px;
-  padding: 2.5rem 2rem;
-  background: #fff;
+@keyframes surgir-cert{from{opacity:0;transform:translateY(22px) scale(.97)}to{opacity:1;transform:none}}
+.certificado-cartao .selo{font-size:2.6rem;margin-bottom:.4rem;display:inline-block;animation:balancar-selo 3s ease-in-out infinite}
+@keyframes balancar-selo{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+.cert-rotulo{font-size:.78rem;letter-spacing:.28em;color:var(--neon);margin:0 0 .6rem;text-transform:uppercase}
+.certificado-cartao h1{
+  font-family:"Fraunces",serif;font-weight:600;font-style:italic;
+  font-size:clamp(1.7rem,5vw,2.4rem);margin:0 0 1.4rem;line-height:1.15;color:#3a2438;
 }
-
-.cert-selo {
-  letter-spacing: 2px;
-  color: var(--orvalho, #6ac9c9);
-  font-family: 'Quicksand', sans-serif;
-  margin-bottom: 0.5rem;
+.cert-nome{
+  font-family:"Fraunces",serif;font-weight:600;font-style:normal;
+  font-size:clamp(1.9rem,6vw,2.7rem);
+  background:linear-gradient(100deg,var(--petala),var(--neon) 55%,var(--orvalho));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  margin:0 0 1.4rem;padding-bottom:.3rem;border-bottom:2px solid rgba(255,95,174,.4);
+  display:inline-block;word-break:break-word;
 }
-
-.cert-moldura h2 {
-  font-family: 'Fraunces', serif;
-  font-size: 2.2rem;
-  margin: 0 0 1rem;
+.cert-texto{color:#6d5060;line-height:1.7;max-width:46ch;margin:0 auto 1.4rem}
+.cert-rodape{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;margin-top:1.6rem;flex-wrap:wrap;text-align:left}
+.cert-assinatura strong{display:block;font-family:"Fraunces",serif;font-style:italic;font-size:1.05rem;color:#3a2438}
+.cert-assinatura span{font-size:.78rem;color:#6d5060}
+.cert-data{font-size:.85rem;color:#6d5060}
+.cert-acoes{display:flex;justify-content:center;gap:1.2rem;margin-top:2.2rem;flex-wrap:wrap;align-items:center}
+.cert-imprimir{
+  font:inherit;font-weight:700;cursor:pointer;color:#2a0f22;
+  padding:.75rem 1.6rem;border:0;border-radius:999px;
+  background:linear-gradient(100deg,var(--petala),var(--neon));
+  box-shadow:0 10px 24px -10px rgba(255,95,174,.8);
+  transition:transform .2s,box-shadow .2s;
 }
-
-.cert-nome {
-  font-family: 'Fraunces', serif;
-  font-style: italic;
-  font-size: 1.6rem;
-  margin: 1rem 0;
-  color: var(--neon, #d63aa3);
-}
-
-.cert-texto { font-family: 'Quicksand', sans-serif; color: #444; }
-
-.cert-data {
-  margin-top: 1.5rem;
-  font-size: 0.85rem;
-  color: #888;
-}
-
-@media print {
-  body > *:not(#pagina-certificado) { display: none !important; }
-  .cert-voltar, .cert-imprimir { display: none !important; }
+.cert-imprimir:hover{transform:translateY(-2px);box-shadow:0 14px 28px -10px rgba(255,95,174,.9)}
+.cert-voltar{color:var(--neon);text-decoration:none;font-size:.9rem;border-bottom:1px solid currentColor;padding-bottom:1px}
+.cert-voltar:hover{color:#d4187c}
+@media print{
+  body > *:not(.pagina-certificado){display:none!important}
+  .pagina-certificado{position:static;background:#fff;padding:0}
+  .certificado-cartao{box-shadow:none;border:1px solid #ccc}
+  .cert-acoes{display:none!important}
 }
